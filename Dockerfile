@@ -13,7 +13,8 @@ RUN     yum install -y nginx && \
         yum clean all && \
         rm -rf /etc/nginx/*_params && \
         mkdir -p /etc/nginx/ssl  && \
-        chown -R nginx:nginx /www 
+        chown -R nginx:nginx /www && \
+        cp /etc/nginx/fastcgi_params.new /etc/nginx/fastcgi_params
         # openssl genrsa -out /etc/nginx/ssl/dummy.key 2048 && \
         # openssl req -new -key /etc/nginx/ssl/dummy.key -out /etc/nginx/ssl/dummy.csr -subj "/C=GB/L=London/O=Company Ltd/CN=docker" && \
         # openssl x509 -req -days 3650 -in /etc/nginx/ssl/dummy.csr -signkey /etc/nginx/ssl/dummy.key -out /etc/nginx/ssl/dummy.crt
