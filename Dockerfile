@@ -1,6 +1,5 @@
 #
 #
-# FROM appsoa/docker-centos-base-java
 FROM centos
 
 LABEL maintainer    = "Matthew Davis <matthew@appsoa.io>"
@@ -9,7 +8,9 @@ LABEL image         = docker-centos-base-nginx
 LABEL built_at      = 0000-00-00 00:00:00
 
 COPY src/etc /etc
-COPY src/www /www
+
+#COPY src/www /www
+VOLUME  /www
 
 RUN     useradd -g wheel user && \ 
         yum install -y epel-release nginx && \
